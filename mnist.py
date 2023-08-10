@@ -1,11 +1,11 @@
 import numpy as np
 from keras.datasets import mnist
-from keras.utils import np_utils
+from keras.utils import to_categorical
 
-from dense import Dense
-from activations import Tanh
-from losses import mse, mse_prime
-from network import train, predict
+from src.layers.dense import Dense
+from src.outils.activations import Tanh
+from src.outils.losses import mse, mse_prime
+from src.outils.network import train, predict
 
 
 def preprocess_data(x, y, limit):
@@ -14,7 +14,7 @@ def preprocess_data(x, y, limit):
     x = x.astype("float32") / 255
     # encode output which is a number in range [0,9] into a vector of size 10
     # e.g. number 3 will become [0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
-    y = np_utils.to_categorical(y)
+    y = to_categorical(y)
     y = y.reshape(y.shape[0], 10, 1)
     return x[:limit], y[:limit]
 

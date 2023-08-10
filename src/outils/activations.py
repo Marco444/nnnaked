@@ -1,6 +1,6 @@
 import numpy as np
-from layer import Layer
-from activation import Activation
+from src.layers.layer import Layer
+from src.outils.activation import Activation
 
 class Tanh(Activation):
     def __init__(self):

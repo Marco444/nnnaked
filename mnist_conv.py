@@ -4,12 +4,12 @@ from keras.utils import to_categorical
 
 
 
-from dense import Dense
-from convolutional import Convolutional
-from reshape import Reshape
-from activations import Sigmoid
-from losses import binary_cross_entropy, binary_cross_entropy_prime
-from network import train, predict
+from src.layers.dense import Dense
+from src.layers.convolutional import Convolutional
+from src.outils.reshape import Reshape
+from src.outils.activations import Sigmoid
+from src.outils.losses import binary_cross_entropy, binary_cross_entropy_prime
+from src.outils.network import train, predict
 
 def preprocess_data(x, y, limit):
     zero_index = np.where(y == 0)[0][:limit]
